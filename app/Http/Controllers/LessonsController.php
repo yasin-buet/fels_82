@@ -13,6 +13,7 @@ use App\User;
 use App\Answer;
 use DB;
 use App\UserLesson;
+use \Session;
 
 class LessonsController extends Controller
 {
@@ -28,7 +29,11 @@ class LessonsController extends Controller
 
     public function index()
     {
-        //
+        $selectedId = session('selectedId');
+        $questionCollection = Lessonbase::wherelessonId($selectedId)->lists('question_id');
+        $questions = Question::whereIn('id', $questionCollection)->get();
+        $answers = Answer::whereIn('question_id', $questionCollection)->get();
+        return view('lessons.index', compact('selectedId', 'questions', 'answers'));
     }
 
     /**
@@ -55,10 +60,8 @@ class LessonsController extends Controller
         $lessons = Category::find($categoryId)->lessons->lists('id');
         $userLearnedLessons = UserLesson::whereuserId($userId)->where('score', '>', 0)->lists('lesson_id');
         $selectedId = Lesson::wherecategoryId($categoryId)->whereNotIn('id', $userLearnedLessons)->first()->id;
-        $questionCollection = Lessonbase::wherelessonId($selectedId)->lists('question_id');
-        $questions = Question::whereIn('id', $questionCollection)->get();
-        $answers = Answer::whereIn('question_id', $questionCollection)->get();
-        return view('lessons', compact('selectedId', 'questions', 'answers'));
+        $request->session()->flash('selectedId', 'selectedId');
+        return redirect()->action('LessonsController@index');
     }
 
     /**
@@ -69,7 +72,7 @@ class LessonsController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**

@@ -29,3 +29,8 @@
     </div>
 </div>
 @endsection
+@section('footer')
+    <center>
+        <strong><a>Developed by Framgia PHP Team Ambidextrous </a></strong>
+    </center>
+@endsection

@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Follower;
+use Auth;
 
 class UsersController extends Controller
 {
@@ -15,10 +17,15 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $users = User::all();
-        return view('home', compact('users'));
+        return view('users.index', compact('users'));
     }
 
     /**

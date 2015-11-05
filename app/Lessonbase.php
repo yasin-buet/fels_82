@@ -11,4 +11,8 @@ class Lessonbase extends Model
     {
         return $this->belongsTo('App\Question');
     }
+    public function lesson()
+    {
+        return $this->belongsTo('App\Lesson');
+    }
 }

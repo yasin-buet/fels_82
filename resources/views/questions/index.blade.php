@@ -52,7 +52,6 @@
             </label>
         </div>
     </div>
-</div>
 <div class="row">
     <div class="col-md-4">
     </div>
@@ -65,20 +64,34 @@
         </button>
     </div>
 </div>
-    @foreach ($words as $word)
-        <div class="row-fluid">
-            <div class="col-md-2">
-            </div>
-            <div class="col-md-5">
-                {{ $word->english_word }}
-            </div>
-            <div class="col-md-5">
-                @foreach ($meanings as $meaning)
-                    @if ($word->id == $meaning->id)
-                        {{ $meaning->bengali_meaning }}
-                    @endif
-                @endforeach
-            </div>
-        </div>
-    @endforeach
+<div>
+    <div class="col-md-3"></div>
+    <div class="col-md-7">
+        <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Words</th>
+                        <th>Meanings</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach ($questions as $question)
+                <tr>
+                    <td>{{ $question->english_word }}
+                    </td>
+                    @foreach ($question->answers()->correct()->get() as $answer)
+                        <td>{{ $answer->bengali_meaning }}</td>
+                    @endforeach
+                </tr>
+            @endforeach
+                </tbody>
+        </table>
+    </div>
+</div>
+</div>
+@endsection
+@section('footer')
+<center>
+        <strong><a>Developed by Framgia PHP Team Ambidextrous </a></strong>
+    </center>
 @endsection

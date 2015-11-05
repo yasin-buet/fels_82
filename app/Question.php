@@ -18,4 +18,8 @@ class Question extends Model
     {
         return $this->hasOne('App\Lessonbase');
     }
+    public function lessons()
+    {
+        return $this->belongsToMany('App\Lesson', 'lessonbase', 'question_id', 'lesson_id');
+    }
 }

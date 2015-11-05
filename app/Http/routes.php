@@ -20,12 +20,15 @@ Route::group(['namespace' => 'Auth', 'prefix' => 'auth','as' => 'auth'], functio
     Route::get('register', 'AuthController@getRegister');
     Route::post('register', 'AuthController@postRegister');
 });
-Route::resource('users','UsersController');
-Route::resource('categories','CategoriesController');
-Route::resource('words','WordsController');
-Route::resource('results','ResultsController');
-Route::resource('lessons','LessonsController');
-Route::resource('profiles','ProfilesController');
-Route::get('home', function () {
-    return view('home');
+Route::resource('users', 'UsersController', ['only' => ['index']]);
+Route::resource('users.follows', 'UsersFollowsController', ['only' => ['index', 'store']]);
+Route::post('categories', function () {
+    return redirect('lessons')->with('selectedId', 'selectedId');
+});
+Route::get('categories', 'CategoriesController@index');
+Route::resource('questions', 'QuestionsController', ['only' => ['index', 'store']]);
+Route::resource('answers', 'AnswersController', ['only' => ['index', 'store']]);
+Route::resource('lessons', 'LessonsController');
+Route::get('helps', function () {
+    return view('helps');
 });

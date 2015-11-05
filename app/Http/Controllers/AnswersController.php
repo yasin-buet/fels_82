@@ -7,17 +7,31 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\UserLesson;
+use App\Lessonbase;
+use App\Question;
+use App\Answer;
+use Auth;
+use \Session;
 
-class ResultsController extends Controller
+class AnswersController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        return view('results');
+        $loggedInUser = Auth::user();
+        $usersLessons = $loggedInUser->lessons;
+        $currentLesson = Session::get('learning_lesson_id');
+        $questionsCorrespondingToLesson = $usersLessons[$currentLesson]->questions;
+        return view('answers.index', compact('questionsCorrespondingToLesson'));
     }
 
     /**

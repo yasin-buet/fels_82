@@ -36,4 +36,22 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    public function followers()
+    {
+        return $this->belongsToMany('App\User', 'followers', 'following_id', 'follower_id')->withTimestamps();
+    }
+
+    public function followings()
+    {
+        return $this->belongsToMany('App\User', 'followers', 'follower_id', 'following_id')->withTimestamps();
+    }
+    public function lessons()
+    {
+        return $this->belongsToMany('App\Lesson', 'user_lessons', 'user_id', 'lesson_id')->withTimestamps();
+    }
+    public function userLessons()
+    {
+        return $this->hasMany('App\UserLesson');
+    }
 }

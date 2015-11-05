@@ -16,11 +16,16 @@ class CategoriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $categories = Category::all();
         $questions = Question::all();
-        return view('categories', compact('categories', 'questions'));
+        return view('categories.index', compact('categories', 'questions'));
     }
 
     /**

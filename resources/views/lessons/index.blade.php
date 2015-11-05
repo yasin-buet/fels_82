@@ -6,7 +6,7 @@
             <h1 class = "panel-title">Panel</h1>
         </div>
         <div class = "panel-body">
-        {!! Form::open(['action' => 'ResultsController@store']) !!}
+        {!! Form::open(['action' => 'AnswersController@store']) !!}
             {!! Form::hidden('lesson_id', $selectedId) !!}
             <div class = "row">
                 <div class = "col-sm-12 form">
