@@ -3,7 +3,8 @@
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 
-class QuestionsTableSeeder extends Seeder
+
+class AnswerTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,11 +15,11 @@ class QuestionsTableSeeder extends Seeder
     {
       $faker=Faker::create();
         foreach(range(1,10)as $index){
-        DB::table('questions')->insert([
+        DB::table('answers')->insert([
             'id' => $faker->unique()->randomNumber,
-            'category_id' => $faker->unique()->randomNumber,
-            'english_word'=>$faker->word,
+            'question_id' => $faker->unique()->randomNumber,
+            'bengali_meaning'=>$faker->word,
             ]);
     }
-  }
+ }
 }

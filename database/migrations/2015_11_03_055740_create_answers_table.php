@@ -19,9 +19,7 @@ class CreateAnswersTable extends Migration
             $table->string('bengali_meaning');
         });
 
-        Schema::table('answers',function (Blueprint $table){
-            $table->foreign('question_id')->references('id')->on('questions');
-        });
+
     }
 
     /**

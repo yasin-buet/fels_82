@@ -13,8 +13,8 @@ class CreateFollowersTable extends Migration
     public function up()
     {
         Schema::create('followers', function (Blueprint $table) {
-            $table->double('follower_id');
-            $table->double('following_id');
+            $table->integer('follower_id');
+            $table->integer('following_id');
         });
         // Schema::table('followers',function(Blueprint $table){
         //     $table->foreign('follower_id')->references('id')->on('users');
