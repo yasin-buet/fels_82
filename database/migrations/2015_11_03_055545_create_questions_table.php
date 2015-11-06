@@ -12,11 +12,8 @@ class CreateQuestionsTable extends Migration
      */
     public function up()
     {
-        //
-
         Schema::create('questions', function (Blueprint $table) {
-            //
-            $table->increments('word_id');
+            $table->increments('id');
             $table->double('category_id');
             $table->string('english_word');
         });
@@ -29,7 +26,6 @@ class CreateQuestionsTable extends Migration
      */
     public function down()
     {
-        //
          Schema::drop('questions');
     }
 }

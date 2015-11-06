@@ -17,6 +17,13 @@ class CreateLearnedWordsTable extends Migration
             $table->unsignedInteger('category_id');
             $table->unsignedInteger('word_id');
         });
+
+        Schema::table('learnedwords',function(Blueprint $table)
+        {
+             $table->foreign('category_id')->references('category_id')->on('catagories');
+             $table->foreign('user_id')->references('id')->on('users');
+             $table->foreign('word_id')->references('word_id')->on('questions');
+        });
     }
 
     /**

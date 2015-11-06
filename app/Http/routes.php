@@ -10,7 +10,9 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
+Route::get('/', function () {
+    return view('welcome');
+});
 Route::group(['namespace' => 'Auth', 'prefix' => 'auth','as' => 'auth'], function() {
     Route::get('login', 'AuthController@getLogin');
     Route::post('login', 'AuthController@postLogin');
@@ -18,5 +20,21 @@ Route::group(['namespace' => 'Auth', 'prefix' => 'auth','as' => 'auth'], functio
     Route::get('register', 'AuthController@getRegister');
     Route::post('register', 'AuthController@postRegister');
 });
-
-
+Route::get('home', function () {
+    return view('home');
+});
+Route::get('word_list', function () {
+    return view('word_list');
+});
+Route::get('category', function () {
+    return view('category');
+});
+Route::get('lesson', function () {
+    return view('lesson');
+});
+Route::get('result', function () {
+    return view('result');
+});
+Route::get('profile', function () {
+    return view('profile');
+});

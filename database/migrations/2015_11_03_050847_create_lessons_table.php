@@ -12,12 +12,10 @@ class CreateLessonsTable extends Migration
      */
     public function up()
     {
-        //
         Schema::create('lessons', function (Blueprint $table) {
-            //
-               $table->double('word_id');
-               $table->double('lesson_id');
-               $table->double('score');
+               $table->increments('id');
+               $table->interger('word_id');
+               $table->integer('score');
         });
     }
 
@@ -28,7 +26,6 @@ class CreateLessonsTable extends Migration
      */
     public function down()
     {
-        //
         Schema::drop('lessons');
     }
 }

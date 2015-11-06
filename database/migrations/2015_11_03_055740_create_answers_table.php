@@ -12,17 +12,15 @@ class CreateAnswersTable extends Migration
      */
     public function up()
     {
-        //
         Schema::create('answers', function (Blueprint $table) {
-            //
-            $table->increments('answer_id');
+            $table->increments('id');
             $table->unsignedInteger('question_id');
             $table->boolean('is_correct');
             $table->string('bengali_meaning');
         });
 
         Schema::table('answers',function (Blueprint $table){
-            $table->foreign('question_id')->references('word_id')->on('questions');
+            $table->foreign('question_id')->references('id')->on('questions');
         });
     }
 
@@ -33,7 +31,6 @@ class CreateAnswersTable extends Migration
      */
     public function down()
     {
-        //
         Schema::drop('answers');
     }
 }
