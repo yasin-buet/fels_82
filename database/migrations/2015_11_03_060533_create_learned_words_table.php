@@ -12,7 +12,11 @@ class CreateLearnedWordsTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('learnedwords', function ( $table) {
+            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('category_id');
+            $table->unsignedInteger('word_id');
+        });
     }
 
     /**
@@ -22,6 +26,6 @@ class CreateLearnedWordsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('learnedwords');
     }
 }
