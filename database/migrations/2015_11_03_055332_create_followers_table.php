@@ -16,10 +16,10 @@ class CreateFollowersTable extends Migration
             $table->double('follower_id');
             $table->double('following_id');
         });
-        Schema::table('followers',function(Blueprint $table){
-            $table->foreign('follower_id')->references('id')->on('users');
-            $table->foreign('following_id')->references('id')->on('users');
-        });
+        // Schema::table('followers',function(Blueprint $table){
+        //     $table->foreign('follower_id')->references('id')->on('users');
+        //     $table->foreign('following_id')->references('id')->on('users');
+        // });
     }
 
     /**
