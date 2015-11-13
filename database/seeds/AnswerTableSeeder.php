@@ -15,26 +15,26 @@ class AnswerTableSeeder extends Seeder
     {
         DB::table('answers')->insert([[
             'id' => 1,
-            'question_id' => 1,
-            'is_correct' => 'true',
+            'question_id' => 4,
+            'is_correct' => true,
             'bengali_meaning'=>str_random(10),
         ],
         [
             'id' => 2,
-            'question_id' => 1,
-            'is_correct' => 'false',
+            'question_id' => 4,
+            'is_correct' => false,
             'bengali_meaning'=>str_random(10),
         ],
         [
             'id' => 3,
-            'question_id' => 1,
-            'is_correct' => 'false',
+            'question_id' => 4,
+            'is_correct' => false,
             'bengali_meaning'=>str_random(10),
         ],
         [
             'id' => 4,
-            'question_id' => 1,
-            'is_correct' => 'false',
+            'question_id' => 4,
+            'is_correct' => false,
             'bengali_meaning'=>str_random(10),
         ],
         [

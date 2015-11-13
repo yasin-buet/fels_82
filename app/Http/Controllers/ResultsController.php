@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\UserLesson;
 
 class ResultsController extends Controller
 {
@@ -37,8 +38,14 @@ class ResultsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $checked = $request->input('check_list');
+        $userLesson = new UserLesson;
+        $userLesson->user_id = \Auth::user()->id;
+        $userLesson->lesson_id = $request->input('lesson_id');
+        $userLesson->score = 0;
+        $userLesson->save();
     }
+
 
     /**
      * Display the specified resource.
