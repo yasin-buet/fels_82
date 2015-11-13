@@ -9,12 +9,12 @@
    <body>
       <div class="container">
          <ul class="nav nav-tabs">
-            <li role="presentation"><a href="{{ URL::to('home') }}">Home</a></li>
-            <li role="presentation"><a href="{{ URL::to('word_list') }}">Word_list</a></li>
-            <li role="presentation"><a href="{{ URL::to('category') }}">Category</a></li>
-            <li role="presentation"><a href="{{ URL::to('lesson') }}">Lesson</a></li>
-            <li role="presentation"><a href="{{ URL::to('result') }}">Result</a></li>
-            <li role="presentation"><a href="{{ URL::to('profile') }}">User Show</a></li>
+            <li role="presentation"><a href="{{ URL::to('users') }}">Home</a></li>
+            <li role="presentation"><a href="{{ URL::to('words') }}">Word List</a></li>
+            <li role="presentation"><a href="{{ URL::to('categories') }}">Category</a></li>
+            <li role="presentation"><a href="{{ URL::to('lessons') }}">Lesson</a></li>
+            <li role="presentation"><a href="{{ URL::to('results') }}">Result</a></li>
+            <li role="presentation"><a href="{{ URL::to('profiles') }}">User Show</a></li>
          </ul>
          <div class="row">
             <div class="container">

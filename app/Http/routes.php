@@ -20,24 +20,12 @@ Route::group(['namespace' => 'Auth', 'prefix' => 'auth','as' => 'auth'], functio
     Route::get('register', 'AuthController@getRegister');
     Route::post('register', 'AuthController@postRegister');
 });
+Route::resource('users','UsersController');
+Route::resource('categories','CategoriesController');
+Route::resource('words','WordsController');
+Route::resource('results','ResultsController');
+Route::resource('lessons','LessonsController');
+Route::resource('profiles','ProfilesController');
 Route::get('home', function () {
     return view('home');
 });
-Route::get('word_list', function () {
-    return view('word_list');
-});
-Route::get('category', function () {
-    return view('category');
-});
-Route::get('lesson', function () {
-    return view('lesson');
-});
-Route::get('result', function () {
-    return view('result');
-});
-Route::get('profile', function () {
-    return view('profile');
-});
-
-
-
